@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Amada - Feliz 25 Anos!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --rose: #e8a9c5;
+            --blush: #f5dce0;
+            --gold: #d4a574;
+            --deep-rose: #a53860;
+            --cream: #faf8f6;
+            --dark: #2d2d2d;
+            --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(180deg, #faf8f6 0%, #f5dce0 50%, #faf8f6 100%);
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, var(--rose), var(--gold));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-rose);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(245,220,224,0.5) 100%);
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(232,169,197,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--deep-rose), var(--rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto 15px;
+            color: #555;
+            font-weight: 300;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
+
+        .heart {
+            color: var(--rose);
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+            margin: 0 3px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Story Section */
+        .story-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--dark);
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--rose), var(--gold));
+            border-radius: 2px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 40px auto 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(180deg, var(--rose), var(--gold));
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+
+        .timeline-item {
+            padding: 10px 0 10px 50px;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 25px;
+            text-align: left !important;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--blush) 100%);
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(232, 169, 197, 0.2);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--rose);
+        }
+
+        .timeline-content h3 {
+            color: var(--deep-rose);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .timeline-content p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid var(--rose);
+            border-radius: 50%;
+            top: 20px;
+            left: 12px;
+            z-index: 1;
+        }
+
+        /* Goals Section */
+        .goals-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,220,224,0.5) 100%);
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .goals-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .goal-card {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--rose), var(--gold));
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .goal-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .goal-card h3 {
+            color: var(--deep-rose);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .goal-list {
+            list-style-type: none;
+        }
+
+        .goal-list li {
+            padding: 10px 0 10px 25px;
+            border-bottom: 1px solid rgba(232, 169, 197, 0.2);
+            position: relative;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        .goal-list li:last-child {
+            border-bottom: none;
+        }
+
+        .goal-list li::before {
+            content: '♥';
+            position: absolute;
+            left: 0;
+            color: var(--rose);
+            font-weight: bold;
+        }
+
+        /* Tinder Section */
+        .tinder-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px 15px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .tinder-section p {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            padding: 0 10px;
+        }
+
+        .tinder-container {
+            max-width: 100%;
+            height: 400px;
+            margin: 0 auto 30px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .tinder-card {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(165, 56, 96, 0.15);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8) rotateY(20deg);
+            border: 1px solid rgba(232, 169, 197, 0.1);
+        }
+
+        .tinder-card.active {
+            opacity: 1;
+            transform: scale(1) rotateY(0deg);
+            z-index: 10;
+        }
+
+        .tinder-card.prev {
+            opacity: 0.3;
+            transform: scale(0.85) translateX(-20px) rotateY(10deg);
+            z-index: 5;
+        }
+
+        .tinder-card.next {
+            opacity: 0.3;
+            transform: scale(0.85) translateX(20px) rotateY(-10deg);
+            z-index: 5;
+        }
+
+        .card-image {
+            height: 60%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(165, 56, 96, 0.2) 100%);
+        }
+
+        .card-content {
+            padding: 20px;
+            height: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffffff 0%, var(--blush) 100%);
+        }
+
+        .card-content h3 {
+            margin-bottom: 8px;
+            color: var(--deep-rose);
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        .card-content p {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .tinder-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .tinder-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            box-shadow: var(--shadow-md);
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+        }
+
+        .photo-btn {
+            color: var(--rose);
+        }
+
+        .message-btn {
+            color: var(--gold);
+        }
+
+        .tinder-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(165, 56, 96, 0.2);
+            border-color: var(--rose);
+        }
+
+        .message-btn:hover {
+            border-color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #8b2e57 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin: 5px 0;
+            letter-spacing: 0.5px;
+        }
+
+        footer p:first-child {
+            font-size: 1rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header-content {
+                flex-wrap: nowrap;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+                margin-bottom: 0;
+            }
+            
+            .nav-links {
+                gap: 30px;
+            }
+            
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+            
+            .hero {
+                padding: 60px 40px;
+                margin: 40px 0;
+                border-radius: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+                max-width: 700px;
+            }
+            
+            .story-section, .goals-section {
+                padding: 60px 40px;
+                margin: 40px 0;
+                border-radius: 20px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+                margin-bottom: 50px;
+            }
+            
+            .timeline::after {
+                left: 50%;
+            }
+            
+            .timeline-item {
+                width: 50%;
+                padding: 10px 50px;
+                margin-bottom: 30px;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: right;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 50%;
+                text-align: left;
+            }
+            
+            .timeline-item::after {
+                left: auto;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: -8px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: -8px;
+            }
+            
+            .goals-container {
+                flex-direction: row;
+                gap: 30px;
+            }
+            
+            .goal-card {
+                min-width: 280px;
+                max-width: 380px;
+                padding: 30px;
+            }
+            
+            .tinder-section {
+                padding: 60px 30px;
+                margin: 40px 0;
+                border-radius: 20px;
+            }
+            
+            .tinder-container {
+                max-width: 400px;
+                height: 500px;
+            }
+            
+            .tinder-card {
+                border-radius: 15px;
+            }
+            
+            .tinder-card.prev {
+                transform: scale(0.92) translateX(-30px) rotateY(10deg);
+            }
+            
+            .tinder-card.next {
+                transform: scale(0.92) translateX(30px) rotateY(-10deg);
+            }
+            
+            .tinder-buttons {
+                gap: 30px;
+            }
+            
+            .tinder-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .tinder-container {
+                max-width: 420px;
+                height: 520px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Para Minha Amada <span class="heart">❤</span></div>
+            <div class="nav-links">
+                <a href="#story">Nossa História</a>
+                <a href="#goals">Metas & Sonhos</a>
+                <a href="#memories">Memórias</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Feliz 25 Anos, Meu Amor! <span class="heart">❤</span></h1>
+            <p>Hoje celebramos 25 anos da pessoa mais especial da minha vida! Cada momento ao seu lado é único e especial. Esta página é uma pequena demonstração de todo o amor que sinto por você.</p>
+            <p>Que este aniversário seja tão maravilhoso quanto você é para mim!</p>
+        </section>
+
+        <section id="story" class="story-section">
+            <h2 class="section-title">Nossa História</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Nosso Primeiro Contato</h3>
+                        <p>Guardarei para sempre em meu coração nossa primeira conversa no Instagram. Enquanto eu tentava ti fazer rir, você brilhava com sua beleza e seu sorriso maroto, conquistando-me a cada mensagem trocada.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Nosso Primeiro Encontro</h3>
+                        <p>Nosso primeiro encontro na feira noturna foi perfeito de um jeito único. Entre tantas opções sofisticadas, escolhi um lugar simples, e foi ali que descobri o seu valor mais raro: a capacidade de transformar momentos comuns em memórias extraordinárias através da sua companhia.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>O Dia do Pedido</h3>
+                        <p>Entre tantas possibilidades, você escolheu compartilhar sua vida comigo e me honrou ao me aceitar como seu futuro esposo. Confesso que nunca fui o mais romântico, mas você despertou em mim um lado que nem sabia existir. Cada dia ao seu lado é uma nova oportunidade para te surpreender e demonstrar todo meu amor.</p>
+                        <p>Lembro da ansiedade ao te pedir em namoro, planejava tantas coisas elaboradas, mas você mostrou que a beleza está na simplicidade. Essa sua capacidade de encontrar felicidade nas coisas mais simples é uma das qualidades que mais admiro em você, meu amor.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Atualmente</h3>
+                        <p>Hoje caminhamos juntos, compartilhando sonhos, apoiando-nos mutuamente e construindo dia após dia o alicerce do nosso maior projeto: uma família repleta de amor e cumplicidade.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Momentos Inesquecíveis</h3>
+                        <p>Nossa jornada já nos levou a tantos lugares especiais: sua primeira experiência em São Paulo, aventura e relaxamento no Thermas, jantares no Outback, emocionantes corridas, as aventuras em Amparo e praticamente todos os restaurantes de Jaguariúna. Cada um desses momentos reforça o quanto você é especial, e meu maior desejo é continuar criando memórias eternas ao seu lado, porque cada instante contigo se transforma em algo inesquecível.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Qual Será o Nosso Próximo Passo?</h3>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="goals" class="goals-section">
+            <h2 class="section-title">Metas & Sonhos</h2>
+            <div class="goals-container">
+                <div class="goal-card">
+                    <h3>Conquistas</h3>
+                    <ul class="goal-list">
+                        <li>Morar Sozinha</li>
+                        <li>Estar indo no seu 3° ano de Faculdade de Engenharia Mecânica</li>
+                        <li>Trabalhar na Jaguar</li>
+                        <li>Ser Efetivada na Jaguar como Analista Junior de Manufatura</li>
+                        <li>Ter conseguido seu PRONI que esse ano quase que não conseguiu</li>
+                    </ul>
+                </div>
+                <div class="goal-card">
+                    <h3>Próximos Desafios</h3>
+                    <ul class="goal-list">
+                        <li>Comprar seu KAzinho bola</li>
+                        <li>Finalizar suas duas faculdades</li>
+                        <li>Viajar para o exterior</li>
+                        <li>Finalizar seu projeto Green Belt e conseguir sua graduação</li>
+                        <li>E o não menos importante - CASARMOS haha</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="memories" class="tinder-section">
+            <h2 class="section-title">Nossas Memórias</h2>
+            <p>Clique nos botões para ver nossas fotos e mensagens especiais</p>
+            
+            <div class="tinder-container">
+                <div class="tinder-card active">
+                    <div class="card-image" style="background-image: url('IMG-20251120-WA0008.jpg')"></div>
+                    <div class="card-content">
+                        <h3>Nossa primeira foto juntos em viagem</h3>
+                        <p>Foi no BAJA que senti nossa conexão e aprendi a amar o automobilismo ao seu lado.</p>
+                    </div>
+                </div>
+                
+                <div class="tinder-card next">
+                    <div class="card-image" style="background-image: url('IMG-20251120-WA0006.jpg')"></div>
+                    <div class="card-content">
+                        <h3>Seu Sorriso</h3>
+                        <p>Seu sorriso ilumina meus dias e aquece meu coração. É a coisa mais linda que já vi.</p>
+                    </div>
+                </div>
+                
+                <div class="tinder-card">
+                    <div class="card-image" style="background-image: url('IMG-20251120-WA0007.jpg')"></div>
+                    <div class="card-content">
+                        <h3>Nosso Primeiro Ano Novo</h3>
+                        <p>Naquele momento, encerrei um ciclo e encontrei a mulher da minha vida, iniciando juntos uma nova jornada.</p>
+                    </div>
+                </div>
+                <div class="tinder-card">
+                    <div class="card-image" style="background-image: url('IMG-20251120-WA0004.jpg')"></div>
+                    <div class="card-content">
+                        <h3>Momentos Aleatórios</h3>
+                        <p>Momentos que deixam meu coração quentinho por ter você em minha vida.</p>
+                    </div>
+                </div>
+                <div class="tinder-card">
+                    <div class="card-image" style="background-image: url('IMG-20251120-WA0005.jpg')"></div>
+                    <div class="card-content">
+                        <h3>Filmes com Pipocas</h3>
+                        <p>Não assistimos com pipoca nessa foto, mas eu amo assistir filmes com pipoquinhas que minha bebela prepara com chimichurri.</p>
+                    </div>
+                </div>
+                <div class="tinder-card">
+                    <div class="card-image" style="background-image: url('IMG-20251120-WA0003.jpg')"></div>
+                    <div class="card-content">
+                        <h3>Nossa Comemoração de 1 Ano</h3>
+                        <p>Espero passar o resto da minha vida com você - TE AMO!!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tinder-buttons">
+                <button class="tinder-btn photo-btn" id="prevBtn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <button class="tinder-btn message-btn" id="nextBtn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Feito com muito amor e carinho para você ❤</p>
+            <p>Feliz 25 Anos, Minha Princesa! 🎂🎉</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.tinder-card');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+
+            function updateCards() {
+                cards.forEach((card, index) => {
+                    card.classList.remove('active', 'prev', 'next');
+                    
+                    if (index === currentIndex) {
+                        card.classList.add('active');
+                    } else if (index === currentIndex - 1) {
+                        card.classList.add('prev');
+                    } else if (index === currentIndex + 1) {
+                        card.classList.add('next');
+                    }
+                });
+            }
+
+            function nextCard() {
+                currentIndex = (currentIndex + 1) % cards.length;
+                updateCards();
+            }
+
+            function prevCard() {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                updateCards();
+            }
+
+            nextBtn.addEventListener('click', nextCard);
+            prevBtn.addEventListener('click', prevCard);
+
+            updateCards();
+
+            let startX = 0;
+            let endX = 0;
+            
+            cards.forEach(card => {
+                card.addEventListener('touchstart', e => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                card.addEventListener('touchend', e => {
+                    endX = e.changedTouches[0].clientX;
+                    handleSwipe();
+                });
+                
+                card.addEventListener('mousedown', e => {
+                    startX = e.clientX;
+                    document.addEventListener('mouseup', handleMouseUp);
+                });
+            });
+            
+            function handleMouseUp(e) {
+                endX = e.clientX;
+                handleSwipe();
+                document.removeEventListener('mouseup', handleMouseUp);
+            }
+            
+            function handleSwipe() {
+                const diff = startX - endX;
+                const swipeThreshold = 30;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        nextCard();
+                    } else {
+                        prevCard();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
